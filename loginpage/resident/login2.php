@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	error_reporting(E_ALL);
-	require_once("database/db_class.php");
+	require_once("../../server/db_class.php");
 
 
 	$password = "";
@@ -31,24 +31,24 @@
 		{
 			//retrieve single array
 			$exist_user = $exist_user[0];
-            if($exist_user['usertype']=="ADMIN"){
+            if($exist_user['position']=="ADMIN"){
 
-                $_SESSION["username"] = $exist_user["username"];
+                $_SESSION["usr_id"] = $exist_user["usr_id"];
                  header("location:administrator/adminhome.php");
                 
             }
-            else if($exist_user['usertype']=="CAPTAIN"){
-                $_SESSION["username"] = $exist_user["username"];
+            else if($exist_user['position']=="CAPTAIN"){
+                $_SESSION["usr_id"] = $exist_user["usr_id"];
               header("location:brgycaptain/captainHome.php");  
               
             }
-            else if($exist_user['usertype']=="SECRETARY"){
-                $_SESSION["username"] = $exist_user["username"];
+            else if($exist_user['position']=="SECRETARY"){
+                $_SESSION["usr_id"] = $exist_user["usr_id"];
                 header("location:brgysec/secretaryHome.php");
                 exit;
             }
-            else if($exist_user['usertype']=="RESIDENT"){
-                $_SESSION["username"] = $exist_user["username"];
+            else if($exist_user['position']=="RESIDENT"){
+                $_SESSION["usr_id"] = $exist_user["usr_id"];
                 header("location:resident/residentHome.php");
                 exit;
             }

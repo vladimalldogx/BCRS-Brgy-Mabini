@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	error_reporting(E_ALL);
-	require_once("database/db_class.php");
+	require_once("../../server/db_class.php");
 
 	
 	$username = "";
@@ -60,10 +60,10 @@
     <meta charset="UTF-8" />
     
      <!-- Compiled and minified CSS -->
-     <link rel="stylesheet" href="assets/css/materialize.min.css">
+     <link rel="stylesheet" href="../../assets/css/materialize.min.css">
 
      <!-- Compiled and minified JavaScript -->
-     <script src="assets/js/materialize.min.js"></script>
+     <script src="../../assets/js/materialize.min.js"></script>
   </head>
   <style>
 	  
@@ -118,7 +118,7 @@
       </div>
       <div class="row"></div>
       <div class="row">
-        <div class="col s6"><a href="../registration/register.php">Create account</a></div>
+        <div class="col s6"><a href="../../registration/register.php">Create account</a></div>
 		<div class="col s6 right-align"><button type = "submit" name = "login-username" class = "btn">Sign in</button></div>
 		</form>
       </div>

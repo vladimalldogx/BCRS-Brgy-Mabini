@@ -19,32 +19,76 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-blue fixed-top" style="background-color: #e3f2fd;" id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="view/image/locker.png" width="50" height="50" alt=""> Brgy Infosys</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="view/image/locker.png" width="50" height="50" alt=""> </a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> <span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span></button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"> <a class="nav-link js-scroll-trigger" href="#about">About</a> </li>
 					<li class="nav-item"> <a class="nav-link js-scroll-trigger" href="#services">Services</a> </li>
 					<li class="nav-item"> <a class="nav-link js-scroll-trigger" href="#inquiries">Inquiries</a> </li>
 					<li class="nav-item"> <a class="nav-link js-scroll-trigger" href="#contact">Contact</a> </li>
-					<button type="button" class="btn btn-secondary"  data-target="#"><a href="studentside/loginstudent.php">Login</a></button>
+					<div class=" nav-item text-right">
+        		<div class="dropdown">
+    	  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      			LoginAs
+      			</button>
+     				 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        			<a class="dropdown-item" href="loginpage/barangaystaff/login1.php">Staff or Official</a>
+					<a class="dropdown-item" href="loginpage/resident/login1.php">I Am resident / visitor</a>
+      				</div>
+    				</div>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<div class="mySlides w3-display-container w3-center"> <img src="image/locker5.jpg" height="600" width="100%">
+	<div class="mySlides w3-display-container w3-center"> <img src="images/image1.jpg" height="600" width="100%">
 		<div class="w3-display-middle w3-margin-top w3-center">
-			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Lock</span><span class="w3-padding w3-black w3-opacity-min"><b>IT</b></span><span class="w3-hide-small w3-text-grey">Up</span></h1> </div>
+			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span><span class="w3-hide-small w3-text-grey"></span></h1> </div>
 	</div>
-	<div class="mySlides w3-display-container w3-center"> <img src="image/locker7.jpg" height="600" width="100%">
+	<div class="mySlides w3-display-container w3-center"> <img src="images/image2.jpg" height="600" width="100%">
 		<div class="w3-display-middle w3-margin-top w3-center">
-			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Lock</span><span class="w3-padding w3-black w3-opacity-min"><b>IT</b></span><span class="w3-hide-small w3-text-grey">Up</span></h1> </div>
+			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span><span class="w3-hide-small w3-text-grey"></span></h1> </div>
 	</div>
-	<div class="mySlides w3-display-container w3-center"> <img src="image/locker4.jpg" height="600" width="100%">
+	<div class="mySlides w3-display-container w3-center"> <img src="images/image3.jpeg" height="600" width="100%">
 		<div class="w3-display-middle w3-margin-top w3-center">
-			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Lock</span><span class="w3-padding w3-black w3-opacity-min"><b>IT</b></span><span class="w3-hide-small w3-text-grey">Up</span></h1> </div>
+			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span><span class="w3-hide-small w3-text-grey"></span></h1> </div>
 	</div>
+	</br>
 	<section id="about">
+	<div class="w3-container col-lg-8 mx-auto ">
+	<h1><span class="w3-padding w3-black w3-opacity-min w3-round">Anouncement for today</span></h1>
+		<div class="w3-container">
+			<div class="w3-container ">
+				</br> 
+				<?php
+					$html="";
+					$errmsg="";
+					require_once("server/dataconn.php");
+					$query = "SELECT * FROM announcement WHERE status ='APPROVED' OR option ='Urgent/important'";
+					$result = mysqli_query($con, $query);
+					while($rows = mysqli_fetch_assoc($result)){
+					
+					$html .= "
+								 <h4> ".$rows['subject']."
+								 <h5> ".$rows['option']."</h5>
+								Posted By:".$rows['staffname']."
+								</br>
+								".$rows['date_posted']."
+								</br>
+								  ".$rows['details']."
+							
+								  
+								  </td>
+								   </tr>";
+					}
+					//else{
+						//echo("no message");
+					//}
+				?>
+				<small><?php echo $html;?></small>
+			</small> </div>
+			</div>
+			</br>
 		<div class="w3-container">
 			<div class="w3-container col-lg-8 mx-auto">
 				<h1><span class="w3-padding w3-black w3-opacity-min w3-round">About Us</span></h1>
@@ -52,7 +96,7 @@
 					<div class="w3-container">
 						</br> <small>With safety and security being two key assurances all schools should give to their students, it’s often surprising how many schools fail to provide a safe space for students to store their belongings. Far from simply being a ‘nice-to-have’, school lockers offer a great deal to students, teachers and parents beyond serving as a secure place for students to keep their things over the course of the school day.</small> </div>
 				</div>
-				</br>
+				
 				<h3><span class="w3-padding w3-black w3-opacity-min w3-round">We can assure your the following:</span></h3>
 				<div class="w3-row-padding w3-container">
 					<div class="w3-container w3-left" style="width:50%"> </div>

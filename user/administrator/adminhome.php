@@ -1,13 +1,13 @@
 <?php
 	session_start();
 	error_reporting(E_ALL);
-	require_once("../database/db_class.php");
+	require_once("../server/db_class.php");
 
 	//check for login
 
 	if(! isset($_SESSION["username"]) )
 	{
-		header("location: ../login1.php");
+		header("location: .../loginpage/brgystaff/login1.php");
 		exit;
 	}
 
@@ -37,9 +37,10 @@
 			
 				
 	}
-    
+   
     
 ?>
+<html>
 <html>
     <head>
     <meta charset="utf-8">

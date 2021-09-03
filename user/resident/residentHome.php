@@ -11,7 +11,7 @@
 		exit;
 	}
 
-	$id = $_SESSION["username"];
+	$id = $_SESSION["usr_id"];
 	$Hi = "";
 
 
@@ -21,7 +21,7 @@
 															from
 																users
 															where
-																username = ? "
+																usr_id = ? "
 															,
 															array($id)
 															,
@@ -30,7 +30,7 @@
 	
 	
 	foreach ($exist_user as $key){
-			$id = "{$key['username']}";
+			$id = "{$key['usr_id']}";
 			$username = "{$key['username']}";
 			$lname = "{$key['lname']}";
 			$fname = "{$key['fname']}";
