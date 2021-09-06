@@ -15,7 +15,7 @@
 															"select
 																*
 															from
-															users
+															resident
 															where
 																password = ? "
 															,
@@ -31,36 +31,17 @@
 		{
 			//retrieve single array
 			$exist_user = $exist_user[0];
-            if($exist_user['position']=="ADMIN"){
-
-                $_SESSION["usr_id"] = $exist_user["usr_id"];
-                 header("location:administrator/adminhome.php");
-                
-            }
-            else if($exist_user['position']=="CAPTAIN"){
-                $_SESSION["usr_id"] = $exist_user["usr_id"];
-              header("location:brgycaptain/captainHome.php");  
-              
-            }
-            else if($exist_user['position']=="SECRETARY"){
-                $_SESSION["usr_id"] = $exist_user["usr_id"];
-                header("location:brgysec/secretaryHome.php");
-                exit;
-            }
-            else if($exist_user['position']=="RESIDENT"){
-                $_SESSION["usr_id"] = $exist_user["usr_id"];
-                header("location:resident/residentHome.php");
-                exit;
-            }
-			
-           // header("location: ../view/home.php");
-            //exit;
+			$_SESSION["username"] = $exist_user["username"];
+			$_SESSION["username"] = $exist_user["username"];
+            header("location: ../../user/resident/residentHome.php");
+            exit;
 		}
 		else 
 		{
 			$error = "<p class = 'Warning'>Invalid password. Please try again.</p>";
 		}
 	}	
+			
 
 
 ?>
@@ -73,10 +54,10 @@
   <head>
     <meta charset="UTF-8" />
    <!-- Compiled and minified CSS -->
-   <link rel="stylesheet" href="assets/css/materialize.min.css">
+   <link rel="stylesheet" href="../../assets/css/materialize.min.css">
 
 <!-- Compiled and minified JavaScript -->
-<script src="assets/js/materialize.min.js"></script>
+<script src="../../assets/js/materialize.min.js"></script>
   </head>
   <style>
 	  
@@ -106,7 +87,12 @@
   <body>
     <div class="login-div">
       <div class="row">
-        <div class="logo"></div>
+        <div class="logo">
+		<?php if(!empty($_SESSION['avatar'])): ?>
+     	<img src="<?= preg_match('/data:image/i', $_SESSION['avatar']) ? $_SESSION['avatar'] : 'assets/uploads/avatar/'.$_SESSION['avatar'] ?>" alt="..." class="avatar-img rounded-circle">
+      
+         <?php endif ?>
+		</div>
       </div>
       <div class="row center-align">
 	  <form method = "POST" action = "login2.php">  

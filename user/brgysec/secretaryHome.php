@@ -84,6 +84,7 @@
 							<h3>Menu</h3>
 							<ul class="nav side-menu">
 								<li> <a href="secretaryHome.php"><i class="fa fa-home"></i> Home </a> </li>
+								<li> <a href="announcement.php"><i class="fa fa-home"></i> Announcements </a> </li>
 								<li> <a href="#"><i class="fa fa-lock"></i> Resident Information </a> </li>
 								<li> <a href="#"><i class="fa fa-check-square-o"></i> Barangay Official and staff </a> </li>
 								<li> <a href="#"><i class="fa fa-book"></i> Barangay Certificate and Clearance</a> </li>
@@ -155,12 +156,12 @@
     
       <form method="POST" action="secretaryHome.php">
       <div class="form-group">
-          <label for="exampleFormControlInput1">Subject</label>
-       <input type="text" name="subject" class="form-control" required="required" id="exampleFormControlInput1">
+          <label for="exampleFormControlInput1">purpose</label>
+       <input type="text" name="purpose" class="form-control" required="required" id="exampleFormControlInput1">
      </div>
   <div class="form-group">
     <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" name="option" id="exampleFormControlSelect1" required="required">
+    <select class="form-control" name="annountype" id="exampleFormControlSelect1" required="required">
       <option>Urgent/important</option>
       <option>Non Urgent/unimportant</option>
       <option>Others</option>
@@ -177,7 +178,7 @@
    
 
   </div>
-  <label for="exampleFormControlInput1">Subject</label>
+  <label for="exampleFormControlInput1">purpose</label>
        <input type="text" name="status" class="form-control" value="PENDING" required="required" placeholder="">
      </div>
   <button type="submit" name="create" class="btn btn-primary">Post</button>
@@ -192,23 +193,23 @@
 	<?php endif?>
 
 	<?php
-	require_once("../../server/dataconn.php");
+	require_once("../../server/homecon.php");
 	$error_message = "";
 	$error = false;
-	$subject= "";
-	$option = "";
+	$purpose= "";
+	$annountype = "";
 	$staffname = "";
 	$details = "";
 	$status = "";
 		
 	if(isset($_POST['create'])){
-		$subject = $_POST['subject'];
-		$option = $_POST['option'];
+		$purpose = $_POST['purpose'];
+		$annountype = $_POST['annountype'];
 		$details = $_POST['details'];
 		$staffname = $_POST['staffname'];
 		$status = $_POST['status'];
 
-		$query = "INSERT INTO announcement(subject, option, details, staffname, status)VALUES('$subject', '$option', '$details', '$staffname', '$status')";
+		$query = "INSERT INTO announcement(purpose, annountype, details, staffname, status)VALUES('$purpose', '$annountype', '$details', '$staffname', '$status')";
 				 mysqli_query($con, $query);
 				 $error_message = "Record successfully saved!";
 				 $error = false;

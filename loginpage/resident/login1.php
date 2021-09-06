@@ -17,7 +17,7 @@
 															"select
 																*
 															from
-																users
+																resident
 															where
 																username= ? "
 															,
@@ -118,11 +118,12 @@
       </div>
       <div class="row"></div>
       <div class="row">
-        <div class="col s6"><a href="../../registration/register.php">Create account</a></div>
+        <div class="col s6"><a href="registration.php">Create account</a></div>
 		<div class="col s6 right-align"><button type = "submit" name = "login-username" class = "btn">Sign in</button></div>
 		</form>
       </div>
     </div>
+	
   </body>
 </html>
 

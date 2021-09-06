@@ -63,14 +63,14 @@
 				<?php
 					$html="";
 					$errmsg="";
-					require_once("server/dataconn.php");
-					$query = "SELECT * FROM announcement WHERE status ='APPROVED' OR option ='Urgent/important'";
+					require_once("server/homecon.php");
+					$query = "SELECT * FROM announcement WHERE status ='APPROVED' ";
 					$result = mysqli_query($con, $query);
 					while($rows = mysqli_fetch_assoc($result)){
 					
 					$html .= "
-								 <h4> ".$rows['subject']."
-								 <h5> ".$rows['option']."</h5>
+								 <h4> ".$rows['purpose']."
+								 <h5> ".$rows['annountype']."</h5>
 								Posted By:".$rows['staffname']."
 								</br>
 								".$rows['date_posted']."
@@ -184,11 +184,7 @@
 						<br/>
 						<input type="password" class="form-control" placeholder="Password" required="" name="password" />
 						<br/>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-default submit" name="login">Login</button>
-							<a href="loginstudent.php">log-in as student</a>
-						</div>
+						
 					</form>
 				</div>
 			</div>
