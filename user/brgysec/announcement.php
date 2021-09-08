@@ -144,7 +144,7 @@
 									<div class="clearfix"></div>
 								</div>
 								<br>
-        <table id="example" class="display nowrap" cellspacing="0" width="100%">
+        <table id="example" class="table-responsive">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -160,7 +160,7 @@
 			
                 <?php 
 					require_once("../../server/dataconn.php");
-                    $sql = "SELECT  * FROM announcement ";
+                    $sql = "SELECT  * FROM announcement";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                         // output data of each row
@@ -208,9 +208,7 @@
                         <a href="#edit<?php echo $id;?>" data-toggle="modal">
                             <button type='button' class='btn btn-warning btn-sm'><span class='glyphicon glyphicon-edit' aria-hidden='true'></span></button>
                         </a>
-                        <a href="#delete<?php echo $id;?>" data-toggle="modal">
-                            <button type='button' class='btn btn-danger btn-sm'><span class='glyphicon glyphicon-trash' aria-hidden='true'></span></button>
-                        </a>
+                      
                     </td>
     
                             </div>
@@ -336,7 +334,7 @@
 			<!-- /page content -->
 			<!-- footer content -->
 			<footer>
-				<div class="pull-right"> Software Engineering 2018
+				<div class="pull-right"> Mabini BCRS Beta 2011
 				</div>
 				<div class="clearfix"></div>
 			</footer>

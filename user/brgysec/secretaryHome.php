@@ -85,7 +85,7 @@
 							<ul class="nav side-menu">
 								<li> <a href="secretaryHome.php"><i class="fa fa-home"></i> Home </a> </li>
 								<li> <a href="announcement.php"><i class="fa fa-home"></i> Announcements </a> </li>
-								<li> <a href="#"><i class="fa fa-lock"></i> Resident Information </a> </li>
+								<li> <a href="resident.php"><i class="fa fa-lock"></i> Resident Information </a> </li>
 								<li> <a href="#"><i class="fa fa-check-square-o"></i> Barangay Official and staff </a> </li>
 								<li> <a href="#"><i class="fa fa-book"></i> Barangay Certificate and Clearance</a> </li>
 								<li> <a href="#"><i class="fa fa-list"></i> Business Clearance </a> </li>
@@ -134,91 +134,96 @@
 								<div class="x_content"> 
              <!--page content-->
     
+			<?php
+			require_once("../../server/homecon.php");
+			$error_message = "";
+			$error = false;
+			$purpose= "";
+			$annountype = "";
+			$staffname = "";
+			$details = "";
+			$status = "";
+				
+			if(isset($_POST['create'])){
+				$purpose = $_POST['purpose'];
+				$annountype = $_POST['annountype'];
+				$details = $_POST['details'];
+				$staffname = $_POST['staffname'];
+				$status = $_POST['status'];
 
-    <!--button-->
- 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Add Announcement 
-        </button>
-    <!--- end button for modal-->    
-  <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Post an Announcement</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-	  <?php if(isset($_SESSION['username'])):?>
-    
-      <form method="POST" action="secretaryHome.php">
-      <div class="form-group">
-          <label for="exampleFormControlInput1">purpose</label>
-       <input type="text" name="purpose" class="form-control" required="required" id="exampleFormControlInput1">
-     </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" name="annountype" id="exampleFormControlSelect1" required="required">
-      <option>Urgent/important</option>
-      <option>Non Urgent/unimportant</option>
-      <option>Others</option>
-
-    </select>
-  </div>
-  <div class="form-group">
-          <label for="exampleFormControlInput1">From:</label>
-       <?php echo"<input type='text' value='{$fname} {$lname}' name='staffname'> "?>
-     </div>	
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" required="required" name="details" id="exampleFormControlTextarea1" rows="3"></textarea>
-   
-
-  </div>
-  <label for="exampleFormControlInput1">purpose</label>
-       <input type="text" name="status" class="form-control" value="PENDING" required="required" placeholder="">
-     </div>
-  <button type="submit" name="create" class="btn btn-primary">Post</button>
-</form>. 
-</div>
-
-      </div>
-      
-    </div>
-  </div>
-</div>
-	<?php endif?>
-
-	<?php
-	require_once("../../server/homecon.php");
-	$error_message = "";
-	$error = false;
-	$purpose= "";
-	$annountype = "";
-	$staffname = "";
-	$details = "";
-	$status = "";
-		
-	if(isset($_POST['create'])){
-		$purpose = $_POST['purpose'];
-		$annountype = $_POST['annountype'];
-		$details = $_POST['details'];
-		$staffname = $_POST['staffname'];
-		$status = $_POST['status'];
-
-		$query = "INSERT INTO announcement(purpose, annountype, details, staffname, status)VALUES('$purpose', '$annountype', '$details', '$staffname', '$status')";
-				 mysqli_query($con, $query);
-				 $error_message = "Record successfully saved!";
-				 $error = false;
-				 }
-		
+				$query = "INSERT INTO announcement(purpose, annountype, details, staffname, status)VALUES('$purpose', '$annountype', '$details', '$staffname', '$status')";
+						mysqli_query($con, $query);
+						$error_message = "Record successfully saved!";
+						$error = false;
+						}
+				
 
 
-	?>
-<!--modal end-->
+			?>
+							<!--button-->
+						
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+								Add Announcement 
+								</button>
+							<!--- end button for modal-->    
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Post an Announcement</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+								<?php if(isset($_SESSION['username'])):?>
+								
+								<form method="POST" action="secretaryHome.php">
+								<div class="form-group">
+									<label for="exampleFormControlInput1">purpose</label>
+								<input type="text" name="purpose" class="form-control" required="required" id="exampleFormControlInput1">
+								</div>
+							<div class="form-group">
+								<label for="exampleFormControlSelect1">Example select</label>
+								<select class="form-control" name="annountype" id="exampleFormControlSelect1" required="required">
+								<option>Urgent/important</option>
+								<option>Non Urgent/unimportant</option>
+								<option>Others</option>
+
+								</select>
+							</div>
+							<div class="form-group">
+									<label for="exampleFormControlInput1">From:</label>
+								<?php echo"<input type='text' value='{$fname} {$lname}' name='staffname'> "?>
+								</div>	
+							<div class="form-group">
+								<label for="exampleFormControlTextarea1">Example textarea</label>
+								<textarea class="form-control" required="required" name="details" id="exampleFormControlTextarea1" rows="3"></textarea>
+							
+
+							</div>
+							<label for="exampleFormControlInput1">purpose</label>
+								<input type="text" name="status" class="form-control" value="PENDING" required="required" placeholder="">
+								</div>
+							<button type="submit" name="create" class="btn btn-primary">Post</button>
+							</form>. 
+										<?php
+															
+										if($error_message !=""){
+										echo "<script> alert('$error_message');</script>	";
+										}
+										?>
+									</script>
+									</div>
+
+								</div>
+								
+								</div>
+							</div>
+							</div>
+								<?php endif?>
+							<!--modal end-->
 							</div>
 						</div>
 					</div>
@@ -227,7 +232,7 @@
 			<!-- /page content -->
 			<!-- footer content -->
 			<footer>
-				<div class="pull-right"> Software Engineering 2018
+				<div class="pull-right"> Mabini BCRS beta - 2021
 				</div>
 				<div class="clearfix"></div>
 			</footer>

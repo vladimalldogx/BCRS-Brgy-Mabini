@@ -34,6 +34,7 @@
 			$username = "{$key['username']}";
 			$lastname = "{$key['lastname']}";
 			$fisrtname = "{$key['firstname']}";
+			$ava = "{$key['picture']}";
 			
 				
 	}
@@ -46,7 +47,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>BCRS-Secretary</title>
+	<title>BCRS Home</title>
 	<link rel="icon" type="image/png" href="view/image/lock.png">
 	<!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="../../assets/css/bs.css">
@@ -73,7 +74,7 @@
 					<div class="clearfix"></div>
 					<!-- menu profile quick info -->
 					<div class="profile clearfix">
-						<div class="profile_pic"> <img src="#" alt="Avatar" class="#"> </div>
+						<div class="profile_pic">    <img src="#" class="img-fluid" width="100"></div>
 						
 						<?php
 						
@@ -90,13 +91,14 @@
 						<div class="menu_section">
 							<h3>Menu</h3>
 							<ul class="nav side-menu">
-								<li> <a href="secretaryHome.php"><i class="fa fa-home"></i> Home </a> </li>
+								<li> <a href="residentHome.php"><i class="fa fa-home"></i> Home </a> </li>
 								<li> <a href="#"><i class="fa fa-lock"></i> Resident Information </a> </li>
 								<li> <a href="#"><i class="fa fa-check-square-o"></i> Barangay Official and staff </a> </li>
-								<li> <a href="#"><i class="fa fa-book"></i> Barangay Certificate and Clearance</a> </li>
-								<li> <a href="#"><i class="fa fa-list"></i> Business Clearance </a> </li>
-								<li> <a href="#"><i class="fa fa-bar-chart"></i> Blotter Records</a> </li>
+								<li> <a href="#"><i class="fa fa-book"></i> Request Certificate / Clearance</a> </li>
+								<li> <a href="#"><i class="fa fa-list"></i> Request Barangay Permit  </a> </li>
+								<li> <a href="blotter.php"><i class="fa fa-bar-chart"></i> File Blotter</a> </li>
 							</ul>
+							
 						</div>
 					</div>
 					<!-- /sidebar menu -->
@@ -110,11 +112,11 @@
 						<ul class="nav navbar-nav navbar-right">
 							<li class="">
 							<?php
-								echo "<a href='javascript:;' class='user-profile dropdown-toggle' data-toggle='dropdown'aria-expanded='false'> <img src='image/blank.png' alt='Avatar'> {$lastname} <span class='fa fa-angle-down'></span> </a>";
+								echo "<a href='javascript:;' class='user-profile dropdown-toggle' data-toggle='dropdown'aria-expanded='false'> <img src='../../assets/uploads/resident_profile/{$ava}' alt='Avatar'> {$lastname} <span class='fa fa-angle-down'></span> </a>";
 							?>
 								<ul class="dropdown-menu dropdown-usermenu pull-right">
 									<li><a href="javascript:;"> Profile</a></li>
-									<li><a href="../login1.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+									<li><a href="../../index.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -137,64 +139,14 @@
 									<h2>Plain Page</h2>
 									<div class="clearfix"></div>
 								</div>
-								<div class="x_content"> 
-             <!--page content-->
-    
-
-    <!--button-->
- 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Add Announcement 
-        </button>
-    <!--- end button for modal-->    
-  <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Post an Announcement</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-      <div class="form-group">
-          <label for="exampleFormControlInput1">Subject</label>
-       <input type="text" name="subject" class="form-control" required="required" id="exampleFormControlInput1">
-     </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" name="anountype" id="exampleFormControlSelect1" required="required">
-      <option>Urgent/important</option>
-      <option>Non Urgent/unimportant</option>
-      <option>Others</option>
-
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" required="required" name="text" id="exampleFormControlTextarea1" rows="3"></textarea>
-    <button type="submit" name="create" class="btn btn-primary">Post</button>
-  </div>
-  <label for="exampleFormControlSelect1" name="lblname"> Posted </label>
-</form>. </div>
-</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" name="create" class="btn btn-primary">Post</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!--modal end-->
+								<div class="x_content"> Add content to the page ... </div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- /page content -->
+										
 			<!-- /page content -->
 			<!-- footer content -->
 			<footer>
@@ -208,47 +160,7 @@
     <!--page content end-->
     </body>   
      <!-- back-end for the modal result--->
-     <?php 
-			$subject = "";
-      $errmsg="";
-			$anountype = "";
-			$text = "";
-      $status = "" ;
-			
-			if(isset($_POST["create"]))
-			{
-				$subject = trim($_POST["subject"]);				
-				$anountype = trim($_POST["anountype"]);				
-				$text = trim($_POST["text"]);					
-				//$status = trim($_POST["status"]);	
-        
-       
-        
-        if(trim($subject) == "" || trim($anountype) == "" || trim($text) == ""  ){
-          $error = "<p class = 'Warning'>Please fill out this field.</p>";
-        }
-        else{
-          $db = MYDB::query(
-            "insert into announcement(subject, anountype, details) 
-             values
-             (?, ?, ?, ?, ?)",
-             array($subject, $anountype, $text),
-             "INSERT"
-          );
-          if($db)
-			  	{
-				  echo "<script>alert('sucessfuly post');</script>";				
-				  }
-				  else 
-				  {
-					  echo "An error has occurred. Cannot insert.";					
-				  }
-  
-        exit;
-        }
-				
-			}
-		?>
+    
     </body>
      
     </html>

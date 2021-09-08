@@ -42,7 +42,7 @@
     
 ?>
 <html>
-<html>
+
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -57,10 +57,10 @@
 	<link rel="stylesheet" href="../../assets/css/animate.css">
 	<link rel="stylesheet" href="../../assets/css/custom.css"> 
 	<!-- Custom styles for this template -->
-	 </head>
+	
   <!-- other stylesheet-->
- 
-  </head>
+	
+
 
     </head>
     <body>
@@ -93,12 +93,22 @@
 							<h3>Menu</h3>
 							<ul class="nav side-menu">
 								<li> <a href="secretaryHome.php"><i class="fa fa-home"></i> Home </a> </li>
-								<li> <a href="announcement.php"><i class="fa fa-home"></i> Announcements </a> </li>
 								<li> <a href="#"><i class="fa fa-lock"></i> Resident Information </a> </li>
+								<li> <a href="announcement.php"><i class="fa fa-home"></i> Announcements </a> </li>
 								<li> <a href="#"><i class="fa fa-check-square-o"></i> Barangay Official and staff </a> </li>
-								<li> <a href="#"><i class="fa fa-book"></i> Barangay Certificate and Clearance</a> </li>
+								<li class="dropdown">
+              					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-lock"></i>Certificates</a>
+              					<ul class="dropdown-menu" style="color: #818181;">
+							 	 <li> <a href="#"><i class="fa fa-user"></i>Barangay Certificate </a> </li>
+                                    <li> <a href="#"><i class="fa fa-eye"></i> Barangay Clearance </a> </li>
+									<li> <a href="#"><i class="fa fa-eye"></i> Certificate Of Indigency </a> </li>
+								</ii>
+								</ul>
 								<li> <a href="#"><i class="fa fa-list"></i> Business Clearance </a> </li>
 								<li> <a href="#"><i class="fa fa-bar-chart"></i> Blotter Records</a> </li>
+              				</ul>
+           					 </li>
+							</li>
 							</ul>
 						</div>
 					</div>

@@ -31,7 +31,7 @@
 	$newName = date('dmYHis').str_replace(" ", "", $profile2);
 
 	  // image file directory
-  	$target = "../assets/uploads/resident_profile/".basename($newName);
+  	$target = "../../assets/uploads/resident_profile/".basename($newName);
 	$check = "SELECT id FROM resident WHERE national_id='$national_id'";
 	$nat = $conn->query($check)->num_rows;	
 

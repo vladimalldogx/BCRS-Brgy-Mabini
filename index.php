@@ -19,8 +19,8 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-blue fixed-top" style="background-color: #e3f2fd;" id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="view/image/locker.png" width="50" height="50" alt=""> </a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> <span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span></button>
+			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="view/image/locker.png" width="50" height="50" alt=""><span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span> </a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"> <a class="nav-link js-scroll-trigger" href="#about">About</a> </li>
@@ -43,15 +43,15 @@
 	</nav>
 	<div class="mySlides w3-display-container w3-center"> <img src="images/image1.jpg" height="600" width="100%">
 		<div class="w3-display-middle w3-margin-top w3-center">
-			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span><span class="w3-hide-small w3-text-grey"></span></h1> </div>
+			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span></h1> </div>
 	</div>
 	<div class="mySlides w3-display-container w3-center"> <img src="images/image2.jpg" height="600" width="100%">
 		<div class="w3-display-middle w3-margin-top w3-center">
-			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span><span class="w3-hide-small w3-text-grey"></span></h1> </div>
+			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span></h1> </div>
 	</div>
 	<div class="mySlides w3-display-container w3-center"> <img src="images/image3.jpeg" height="600" width="100%">
 		<div class="w3-display-middle w3-margin-top w3-center">
-			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span><span class="w3-hide-small w3-text-grey"></span></h1> </div>
+			<h1 class="w3-xxlarge w3-text-white"> <span class="w3-hide-small w3-text-grey">Mabini</span><span class="w3-padding w3-black w3-opacity-min"><b>BCRS</b></span></h1> </div>
 	</div>
 	</br>
 	<section id="about">

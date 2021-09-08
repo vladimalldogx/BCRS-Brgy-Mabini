@@ -144,7 +144,7 @@
 									<div class="clearfix"></div>
 								</div>
 								<br>
-        <table id="example" class="display nowrap" cellspacing="0" width="100%">
+        <table id="example" class="display table table-responsive">
             <thead>
                 <tr>
                     <th>ID</th>
